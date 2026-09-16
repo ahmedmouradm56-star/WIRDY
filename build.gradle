@@ -1,1 +1,31 @@
-plugins { id 'com.android.application' version '8.5.2' apply false }
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.app.wirdy'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.app.wirdy"
+        minSdk 26
+        targetSdk 35
+        versionCode 10
+        versionName "9.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // debug-signed so `assembleRelease` still yields an installable file
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.13.1'
+}
